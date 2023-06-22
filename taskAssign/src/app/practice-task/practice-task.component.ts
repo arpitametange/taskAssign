@@ -15,7 +15,7 @@ export class PracticeTaskComponent implements OnInit {
   task;
   date;
   dateall:any=[]
-
+  selectedValue:string='null';
   constructor(private service:PracticeService,private snackbr:MatSnackBar,private dialog:MatDialog) {
 
    }
@@ -62,12 +62,7 @@ export class PracticeTaskComponent implements OnInit {
       
       })}
     )}
-  // remove(id){
-  //   this.dateall.id=id
-  //   this.service.removedate(1).subscribe(res=>{
-  //   console.log('this is remove data',res);    
-  //   })
-  // }
+  
 //for deleting task
   delete(deletedata){
   this.dateall.splice(deletedata,1)
@@ -128,15 +123,15 @@ onChange(toggle,task){
 // myDate:any='2022-2-15';
 // myData:any=[];
 
-updatedvalue(d){
-console.log('whata are the values in d',d);
+// updatedvalue(d){
+// console.log('whata are the values in d',d);
 
-this.dateall.date=d.date
-this.dateall.task=d.task
-this.service.updateTask(d).subscribe(res=>{
-console.log('updated task',res);
+// this.dateall.date=d.date
+// this.dateall.task=d.task
+// this.service.updateTask(d).subscribe(res=>{
+// console.log('updated task',res);
 
-})
-}
+// })
+// }
 
 }

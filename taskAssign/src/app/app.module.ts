@@ -10,13 +10,15 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatBadgeModule, MatButtonModule, MatButtonT
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PracticeTaskComponent } from './practice-task/practice-task.component';
-import{MatSnackBarModule} from '@angular/material/snack-bar'
+import{MatSnackBarModule} from '@angular/material/snack-bar';
+import { FilterPipe } from './filter.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PracticeTaskComponent
+    PracticeTaskComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,6 @@
         <input matInput #task placeholder="" value="">
       </mat-form-field>
     
-     <!-- <input type="text" #task> -->
-     <!-- <input type="date" #date> -->
 </div>
 <div class="">   
      <div>
@@ -26,6 +24,22 @@
 
 </div >
 
+<div class="row  container" style="display: inline-flex; flex-direction: column;">
+    <div class="col-3 ">
+    <h5  style=" margin-left: 120px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(225, 24, 13);">Filter tasks</h5>
+    </div>
+    <div class="col" style="height: 8%; " > 
+        <mat-form-field style="margin-left:122px ;" class="selecttast container row col-2">
+            <mat-select [(ngModel)]="selectedValue" matNativeControl>
+              <mat-option value="null" selected="true">All tasks</mat-option>
+              <mat-option value="true">Completed task</mat-option>
+              <mat-option value="false">In progress task</mat-option>
+            </mat-select>
+          </mat-form-field>                      
+    </div>
+</div>
+
 <div class="my-4   container shadow ">
     <div class="row justify-content-center" >
         <table>
@@ -39,7 +53,7 @@
                 </tr>
             </thead>
             <tbody class="bodyy">
-                <tr *ngFor="let arrray of dateall; let i=index">
+                <tr *ngFor="let arrray of dateall |filter:selectedValue; let i=index; ">
                     <td>{{i+1}}.</td>
                     <td><span *ngIf="!arrray.editable">{{arrray.task}}</span>
                     <input type="text" [(ngModel)]="arrray.task" *ngIf="arrray.editable">
@@ -47,18 +61,16 @@
                     <td><span *ngIf="!arrray.editable">{{arrray.date | date:'dd/MM/yyyy'}}</span>
                     <input type="date" [(ngModel)]="arrray.date" *ngIf="arrray.editable">
                     </td>
-                    <!-- <td >
-                        {{arrray.status ? 'Complete' : 'Incomplete' }}</td> -->
-                       
+                    
                         <td >
                             <mat-slide-toggle color="primary" [checked]="arrray.status" (change)="onChange(toggle,arrray)" #toggle   [ngClass]="{'text-primary': arrray.status, 'text-danger': !arrray.status}">{{arrray.status ? 'Completed' : 'Incomplete' }}</mat-slide-toggle>
                         </td>
               <td><button class="btn btn-outline-danger" (click)="delete(arrray.id)">Delete</button></td>
               <td>
-                 <div *ngIf="arrray.editable">
+                 <!-- <div *ngIf="arrray.editable">
                     <button class="btn btn-outline-danger" (click)="updatedvalue(arrray)">Update</button> 
                 <button  (click)="arrray.editable=false" class="btn btn-outline-info">done</button>
-                </div>
+                </div> -->
 <div *ngIf="!arrray.editable"><button class="btn btn-outline-primary" (click)="openDialog(arrray)">Edit</button>
 </div>
             </td>
