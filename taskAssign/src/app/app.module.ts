@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatBadgeModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatNativeDateModule, MatSelectModule, MatSlideToggleModule, MatStepperModule } from '@angular/material';
-
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatBadgeModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatNativeDateModule, MatSelectModule, MatSlideToggleModule, MatStepperModule, matDialogAnimations } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PracticeTaskComponent } from './practice-task/practice-task.component';
+import{MatSnackBarModule} from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PracticeTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +37,17 @@ import { MatBadgeModule, MatButtonModule, MatButtonToggleModule, MatCardModule, 
     MatStepperModule,
     MatBadgeModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatCheckboxModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ],
+  bootstrap: [AppComponent],
+  entryComponents : [HomeComponent]
+
 })
 export class AppModule { }
+
