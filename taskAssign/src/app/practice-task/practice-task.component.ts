@@ -73,7 +73,7 @@ export class PracticeTaskComponent implements OnInit {
 this.service.removedate(deletedata).subscribe(data=>{
 
 })
- this.get();
+//  this.get();
 }
 
 //editing task
@@ -120,18 +120,4 @@ onChange(toggle,task){
         this.get();  
         }, 500);
 }
-// myDate:any='2022-2-15';
-// myData:any=[];
-
-// updatedvalue(d){
-// console.log('whata are the values in d',d);
-
-// this.dateall.date=d.date
-// this.dateall.task=d.task
-// this.service.updateTask(d).subscribe(res=>{
-// console.log('updated task',res);
-
-// })
-// }
-
 }

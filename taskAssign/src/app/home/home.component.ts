@@ -17,7 +17,7 @@ constructor(private taskService:PracticeService, @Inject(MAT_DIALOG_DATA) public
 private ref: MatDialogRef<HomeComponent>){ }
 
 ngOnInit() {
-  // console.log('data@@', this.data);
+  
   this.myData = this.data.editData;
   let temp = new Date(this.data.editData.date);
   this.myDate  = (temp.getFullYear())+'-'+(this.editDate(temp.getMonth()+1))+'-'+(this.editDate(temp.getDate())); 
@@ -34,7 +34,6 @@ editData(editTask, editDate){
   this.myData.task = editTask;
   this.myData.date = editDate;
   this.taskService.updateTask(this.myData).subscribe(res=>{
-    //console.log('***data Updated',res);
   })
   
 }

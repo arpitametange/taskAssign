@@ -67,10 +67,7 @@
                         </td>
               <td><button class="btn btn-outline-danger" (click)="delete(arrray.id)">Delete</button></td>
               <td>
-                 <!-- <div *ngIf="arrray.editable">
-                    <button class="btn btn-outline-danger" (click)="updatedvalue(arrray)">Update</button> 
-                <button  (click)="arrray.editable=false" class="btn btn-outline-info">done</button>
-                </div> -->
+                
 <div *ngIf="!arrray.editable"><button class="btn btn-outline-primary" (click)="openDialog(arrray)">Edit</button>
 </div>
             </td>

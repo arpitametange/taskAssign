@@ -30,11 +30,8 @@ headers:this.headers
     const url=`${this.url}/${id}`
 return this.http.delete(url,this.httpOptions)
   }
-
   
   updateTask(task){
     return   this.http.put(`${this.url}/${task.id}`,task, {headers:this.headers});
    }
-
-
 }
