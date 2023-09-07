@@ -11,7 +11,7 @@ import { element } from 'protractor';
   templateUrl: './practice-task.component.html',
   styleUrls: ['./practice-task.component.css']
 })
-export class PracticeTaskComponent implements OnInit {
+export class PracticeTaskComponent implements OnInit  {
   task;
   date;
   dateall:any=[]
@@ -19,11 +19,12 @@ export class PracticeTaskComponent implements OnInit {
   constructor(private service:PracticeService,private snackbr:MatSnackBar,private dialog:MatDialog) {
 
    }
+
   
 
   ngOnInit() {
    this.get()
-  
+
    }
    get(){
     this.service.get().subscribe(res=>{
@@ -64,16 +65,21 @@ export class PracticeTaskComponent implements OnInit {
     )}
   
 //for deleting task
-  delete(deletedata){
-  this.dateall.splice(deletedata,1)
+  delete(deletedata,id){
+  // this.dateall.splice(deletedata,id)
+  
   this.snackbr.open('Task deleted sucessfully','',{
     duration:2000
   })
 //  this. remove(1)
-this.service.removedate(deletedata).subscribe(data=>{
-
+this.service.removedate(deletedata).subscribe({
+  next:(data)=>{
+console.log(deletedata);
+// this.(deletedata,id)
+this.get()
+  }
 })
-//  this.get();
+
 }
 
 //editing task
@@ -101,6 +107,7 @@ openDialog(editData)
 
 onChange(toggle,task){
   //
+  
       if(toggle.checked){
        task.status=true;
        this.service.updateTask(task).subscribe();
@@ -108,6 +115,7 @@ onChange(toggle,task){
         duration:2000,
         verticalPosition:"bottom"
        })
+  
       }
       //this toggle for the when task mark as incomplete
       else{

@@ -18,10 +18,8 @@ headers:this.headers
 // heade2=new HttpHeaders()
   get(){
   return  this.http.get(this.url)
-
   }
 
-  
   post(task:object){
     return this.http.post(`${this.url}`,task)
   }
